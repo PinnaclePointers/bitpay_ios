@@ -12,17 +12,17 @@
 #define ios_keyutils_h
 
 @interface KeyUtils : NSObject
-
-+ (void)nonce;
++ (NSString *)nonce;
 + (void)generatePem;
-+ (void)createKey;
-+ (void)getPrivateKey;
-+ (void)getPublicKey;
-+ (void)getPrivateKeyForPem;
-+ (void)generateSinFromPem;
-+ (void)sign;
-+ (void)encodeBase58;
-
++ (void)createKeyWith:(NSString *)pem;
++ (void)createNewKey;
++ (void)getPrivateKey:(NSString *)key;
++ (void)getPublicKey:(NSString *)key;
++ (void)getPrivateKeyFromPem:(NSString *)pem;
++ (void)getPublicKeyFromPem:(NSString *)pem;
++ (void)generateSinFromPem:(NSString *)pem;
++ (void)sign:(NSString *)message withKey:(NSString *)key;
++ (void)encodeBase58:(NSString *)data;
 @end
 
 #endif

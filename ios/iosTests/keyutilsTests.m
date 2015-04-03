@@ -23,39 +23,54 @@
 }
 
 - (void)testNonce {
+    NSString *nonce = [KeyUtils nonce];
+    XCTAssertEqual([nonce length], 17);
+    NSScanner *scanner = [NSScanner scannerWithString:nonce];
+    XCTAssertTrue([scanner scanInteger:NULL] && [scanner isAtEnd]);
+}
+
+- (void)testCreateKeyWithPem {
+    XCTAssert(YES, @"Pass");
+}
+
+- (void)testCreateNewKey {
     XCTAssert(YES, @"Pass");
 }
 
 - (void)testGeneratePem {
-    
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testCreatePem {
-    
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testgetPrivateKey {
-    
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testgetPublicKey {
-    
+    XCTAssert(YES, @"Pass");
 }
 
-- (void)testgetPrivateKeyForPem {
-    
+- (void)testgetPrivateKeyFromPem {
+    XCTAssert(YES, @"Pass");
 }
 
-- (void)testgenerateSinForPem {
-    
+- (void)testgetPublicKeyFromPem {
+    XCTAssert(YES, @"Pass");
+}
+
+- (void)testgenerateSinFromPem {
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testSign {
-    
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testencodeBase58 {
-    
+    XCTAssert(YES, @"Pass");
 }
 
 - (void)testPerformanceExample {
