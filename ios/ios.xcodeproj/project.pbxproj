@@ -12,6 +12,7 @@
 		978C44C41ACEFE9D004EE887 /* libios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C44B81ACEFE9D004EE887 /* libios.a */; };
 		978C44D51ACF0112004EE887 /* keyutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C44D41ACF0112004EE887 /* keyutils.m */; };
 		978C44D81ACF236D004EE887 /* keyutilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C44D71ACF236D004EE887 /* keyutilsTests.m */; };
+		978C44DA1AD2D7E1004EE887 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C44D91AD2D7E1004EE887 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		978C44D41ACF0112004EE887 /* keyutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyutils.m; sourceTree = "<group>"; };
 		978C44D61ACF0138004EE887 /* keyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyutils.h; sourceTree = "<group>"; };
 		978C44D71ACF236D004EE887 /* keyutilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyutilsTests.m; sourceTree = "<group>"; };
+		978C44D91AD2D7E1004EE887 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978C44DA1AD2D7E1004EE887 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +73,7 @@
 		978C44AF1ACEFE9D004EE887 = {
 			isa = PBXGroup;
 			children = (
+				978C44D91AD2D7E1004EE887 /* Security.framework */,
 				978C44BA1ACEFE9D004EE887 /* ios */,
 				978C44C71ACEFE9D004EE887 /* iosTests */,
 				978C44B91ACEFE9D004EE887 /* Products */,
