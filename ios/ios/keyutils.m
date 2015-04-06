@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 bitpay. All rights reserved.
 //
 #import "keyutils.h"
+#import <Security/Security.h>
 
 @implementation KeyUtils
+
+static const UInt8 publicKeyIdentifier[] = "com.bitpay.ios.publickey\0";
+static const UInt8 privateKeyIdentifier[] = "com.bitpay.ios.privatekey\0";
+
 
 + (NSString *)nonce {
     NSDate *currentTime = [[NSDate alloc] init];
@@ -29,9 +34,49 @@
 };
 
 + (void)createNewKey {
-    //    key = OpenSSL::PKey::EC.new("secp256k1")
-    //    key.generate_key
-    //    key
+    SecKeyRef publicKey = NULL;
+    SecKeyRef privateKey = NULL;
+    OSStatus status = noErr;
+    
+    NSMutableDictionary *privateKeyAttr = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *publicKeyAttr = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *keyPairAttr = [[NSMutableDictionary alloc] init];
+    
+    NSData *publicTag = [NSData dataWithBytes:publicKeyIdentifier
+                                        length:strlen((const char *)publicKeyIdentifier)];
+
+    NSData *privateTag = [NSData dataWithBytes:privateKeyIdentifier
+                                         length:strlen((const char *)privateKeyIdentifier)];
+
+    [keyPairAttr setObject:(__bridge id)kSecAttrKeyTypeEC
+                    forKey:(__bridge id)kSecAttrKeyType];
+    [keyPairAttr setObject:[NSNumber numberWithInt:256]
+                    forKey:(__bridge id)kSecAttrKeySizeInBits];
+
+    [privateKeyAttr setObject:[NSNumber numberWithBool:YES]
+                       forKey:(__bridge id)kSecAttrIsPermanent];
+    [privateKeyAttr setObject:privateTag
+                       forKey:(__bridge id)kSecAttrApplicationTag];
+    
+    [publicKeyAttr setObject:[NSNumber numberWithBool:YES]
+                      forKey:(__bridge id)kSecAttrIsPermanent];
+    [publicKeyAttr setObject:publicTag
+                      forKey:(__bridge id)kSecAttrApplicationTag];
+    
+    [keyPairAttr setObject:privateKeyAttr
+                    forKey:(__bridge id)kSecPrivateKeyAttrs];
+    [keyPairAttr setObject:publicKeyAttr
+                    forKey:(__bridge id)kSecPublicKeyAttrs];
+    
+    status = SecKeyGeneratePair((__bridge CFDictionaryRef)keyPairAttr,
+                                &publicKey, &privateKey);
+    
+    if(status != noErr) {
+        //read status and react, maybe throw an error here
+    }
+    
+    if(publicKey) CFRelease(publicKey);
+    if(privateKey) CFRelease(privateKey);
 }
 
 
