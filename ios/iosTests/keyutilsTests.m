@@ -61,7 +61,8 @@ static const UInt8 publicKeyIdentifier[] = "com.bitpay.ios.publickey\0";
 }
 
 - (void)testgetPrivateKey {
-    XCTAssert(YES, @"Pass");
+    
+    [KeyUtils getPrivateKey];
 }
 
 - (void)testgetPublicKey {
@@ -91,8 +92,14 @@ static const UInt8 publicKeyIdentifier[] = "com.bitpay.ios.publickey\0";
 - (void)testPerformanceExample {
 
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+
     }];
+}
+
+- (void)testGenerateRandomNumber {
+    int result = [KeyUtils generateRandomNumber];
+    XCTAssertEqual(result, 0);
+    
 }
 
 @end

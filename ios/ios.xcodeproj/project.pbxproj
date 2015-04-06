@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		978C44BC1ACEFE9D004EE887 /* ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 978C44BB1ACEFE9D004EE887 /* ios.h */; };
-		978C44BE1ACEFE9D004EE887 /* ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C44BD1ACEFE9D004EE887 /* ios.m */; };
 		978C44C41ACEFE9D004EE887 /* libios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C44B81ACEFE9D004EE887 /* libios.a */; };
 		978C44D51ACF0112004EE887 /* keyutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C44D41ACF0112004EE887 /* keyutils.m */; };
 		978C44D81ACF236D004EE887 /* keyutilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C44D71ACF236D004EE887 /* keyutilsTests.m */; };
 		978C44DA1AD2D7E1004EE887 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C44D91AD2D7E1004EE887 /* Security.framework */; };
+		978C44EA1AD33749004EE887 /* libsecp256k1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C44E91AD33749004EE887 /* libsecp256k1.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,11 +27,10 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		978C44B61ACEFE9D004EE887 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				978C44BC1ACEFE9D004EE887 /* ios.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,14 +38,19 @@
 
 /* Begin PBXFileReference section */
 		978C44B81ACEFE9D004EE887 /* libios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		978C44BB1ACEFE9D004EE887 /* ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios.h; sourceTree = "<group>"; };
-		978C44BD1ACEFE9D004EE887 /* ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios.m; sourceTree = "<group>"; };
 		978C44C31ACEFE9D004EE887 /* iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		978C44C91ACEFE9D004EE887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		978C44D41ACF0112004EE887 /* keyutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyutils.m; sourceTree = "<group>"; };
 		978C44D61ACF0138004EE887 /* keyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyutils.h; sourceTree = "<group>"; };
 		978C44D71ACF236D004EE887 /* keyutilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyutilsTests.m; sourceTree = "<group>"; };
 		978C44D91AD2D7E1004EE887 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		978C44DB1AD31F56004EE887 /* TestECStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestECStuff.m; sourceTree = "<group>"; };
+		978C44DD1AD31F72004EE887 /* TestECStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestECStuff.h; sourceTree = "<group>"; };
+		978C44E01AD32422004EE887 /* libsecp256k1.la */ = {isa = PBXFileReference; lastKnownFileType = text; name = libsecp256k1.la; path = ../../secp256k1/libsecp256k1.la; sourceTree = "<group>"; };
+		978C44E31AD324C3004EE887 /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsecp256k1.a; path = ../../secp256k1/.libs/libsecp256k1.a; sourceTree = "<group>"; };
+		978C44E71AD336E0004EE887 /* airbitz_secp256k1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = airbitz_secp256k1; sourceTree = "<group>"; };
+		978C44E81AD336F6004EE887 /* secp256k1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = secp256k1.h; path = airbitz_secp256k1/include/secp256k1.h; sourceTree = "<group>"; };
+		978C44E91AD33749004EE887 /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsecp256k1.a; path = ../../airbitz_secp256k1/.libs/libsecp256k1.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978C44EA1AD33749004EE887 /* libsecp256k1.a in Frameworks */,
 				978C44DA1AD2D7E1004EE887 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +77,9 @@
 		978C44AF1ACEFE9D004EE887 = {
 			isa = PBXGroup;
 			children = (
+				978C44E91AD33749004EE887 /* libsecp256k1.a */,
+				978C44E31AD324C3004EE887 /* libsecp256k1.a */,
+				978C44E01AD32422004EE887 /* libsecp256k1.la */,
 				978C44D91AD2D7E1004EE887 /* Security.framework */,
 				978C44BA1ACEFE9D004EE887 /* ios */,
 				978C44C71ACEFE9D004EE887 /* iosTests */,
@@ -92,10 +99,12 @@
 		978C44BA1ACEFE9D004EE887 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				978C44BB1ACEFE9D004EE887 /* ios.h */,
-				978C44BD1ACEFE9D004EE887 /* ios.m */,
+				978C44E81AD336F6004EE887 /* secp256k1.h */,
+				978C44E71AD336E0004EE887 /* airbitz_secp256k1 */,
 				978C44D41ACF0112004EE887 /* keyutils.m */,
 				978C44D61ACF0138004EE887 /* keyutils.h */,
+				978C44DB1AD31F56004EE887 /* TestECStuff.m */,
+				978C44DD1AD31F72004EE887 /* TestECStuff.h */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -205,7 +214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				978C44BE1ACEFE9D004EE887 /* ios.m in Sources */,
 				978C44D51ACF0112004EE887 /* keyutils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +318,11 @@
 		978C44CD1ACEFE9D004EE887 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chrisk/source/secp256k1/.libs,
+					/Users/chrisk/source/airbitz_secp256k1/.libs,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -319,6 +332,11 @@
 		978C44CE1ACEFE9D004EE887 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chrisk/source/secp256k1/.libs,
+					/Users/chrisk/source/airbitz_secp256k1/.libs,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

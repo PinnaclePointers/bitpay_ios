@@ -80,8 +80,22 @@ static const UInt8 privateKeyIdentifier[] = "com.bitpay.ios.privatekey\0";
 }
 
 
-+ (void)getPrivateKey:(NSString *)key {
-//        key.private_key.to_int.to_s(16)
++ (NSString *)getPrivateKey {
+    //key.private_key.to_int.to_s(16)
+    SecKeyRef privateKey = NULL;
+    NSData *privateTag = [NSData dataWithBytes:privateKeyIdentifier
+                                       length:strlen((const char *)privateKeyIdentifier)];
+    NSMutableDictionary *queryPrivateKey = [[NSMutableDictionary alloc] init];
+    
+    [queryPrivateKey setObject:(__bridge id)kSecClassKey forKey:(__bridge id)kSecClass];
+    [queryPrivateKey setObject:privateTag forKey:(__bridge id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)kSecAttrKeyTypeEC forKey:(__bridge id)kSecAttrKeyType];
+    [queryPrivateKey setObject:[NSNumber numberWithBool:YES] forKey:(__bridge id)kSecReturnRef];
+    
+    SecItemCopyMatching((__bridge CFDictionaryRef)queryPrivateKey, (CFTypeRef *)&privateKey);
+    NSLog(@"this is the private key: %@", privateKey);
+    return @"";
+    
 };
 
 + (void)getPublicKey:(NSString *)key {
@@ -153,5 +167,14 @@ static const UInt8 privateKeyIdentifier[] = "com.bitpay.ios.privatekey\0";
 //            end
 //    
 };
+
++ (int) generateRandomNumber {
+    
+    uint8_t randomBytes[32];
+    int result = SecRandomCopyBytes(kSecRandomDefault, 32, randomBytes);
+    return result;
+    
+}
+
 
 @end
